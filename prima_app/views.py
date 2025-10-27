@@ -17,3 +17,16 @@ def lista(request):
 #funzione che verrà associata alla pagina chi_siamo
 def chi_siamo(request):
     return render(request, "prima_app/chi_siamo.html")
+
+#funzione che verrà associata alla pagina variabili
+def variabili(request):
+    context = {
+        'var1' : 'Prima variabile',
+        'var2' : 'Seconda variabile',
+        'var3' : 'Terza variabile'
+    }
+    return render(request, "prima_app/variabili.html", context)
+
+#funzione che verrà associata alla pagina index
+def index(request):
+    return render(request, "prima_app/index.html")

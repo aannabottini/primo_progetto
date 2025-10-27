@@ -16,11 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 #admin rappresenta la sezione di amministrazione del sito.
-from django.contrib import admin
 #indichiamo il prefisso dei nostri url.
 from django.urls import path,include
+from .views import index_root
 
 urlpatterns = [
+    path('', index_root, name="index_root"),
     path('admin/', admin.site.urls),#admin rappresenta la sezione di amministrazione del sito. 
-    path('', include("prima_app.urls", namespace="prima_app")) #Questa riga include un altro file di configurazione URL
+    path('prima_app/', include("prima_app.urls", namespace="prima_app")) #Questa riga include un altro file di configurazione URL
 ]

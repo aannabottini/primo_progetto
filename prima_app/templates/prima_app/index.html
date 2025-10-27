@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <ol> 
+        <!-- { % url “namespace:url” % }consente di inserire dinamicamente 
+        un link senza doverlo scrivere noi. Si usa il namespace (app_name) 
+        definito in primo_progetto/urls.py seguito dai due punti e poi 
+        dal name dell’url definito in prima_app/urls.py-->
+        <li><a href="{% url 'index_root'%}">Torna a index root</a></li> 
+        <li><a href="{% url 'prima_app:homepage'%}">Homepage benvenuto</a></li>
+        <li><a href="{% url 'prima_app:welcome'%}">Welcome</a></li>
+        <li><a href="{% url 'prima_app:lista'%}">Lista</a></li>
+        <li><a href="{% url 'prima_app:chi_siamo'%}">Chi siamo</a></li>
+        <li><a href="{% url 'prima_app:variabili'%}">Variabili</a></li>
+    </ol>
+</body>
+</html>
