@@ -23,5 +23,6 @@ from .views import index_root
 urlpatterns = [
     path('', index_root, name="index_root"),
     path('admin/', admin.site.urls),#admin rappresenta la sezione di amministrazione del sito. 
-    path('prima_app/', include("prima_app.urls", namespace="prima_app")) #Questa riga include un altro file di configurazione URL
+    path('prima_app/', include("prima_app.urls", namespace="prima_app")), #Questa riga include un altro file di configurazione URL
+    path('seconda_app/',include("seconda_app.urls", namespace="seconda_app"))
 ]

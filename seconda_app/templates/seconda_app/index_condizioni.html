@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index condizioni</title>
+</head>
+<body>
+    <ol> 
+        <!-- { % url “namespace:url” % }consente di inserire dinamicamente 
+        un link senza doverlo scrivere noi. Si usa il namespace (app_name) 
+        definito in primo_progetto/urls.py seguito dai due punti e poi 
+        dal name dell’url definito in prima_app/urls.py-->
+        <li><a href="{% url 'index_root'%}">Torna a index root</a></li> 
+        <li><a href="{% url 'seconda_app:es_if'%}">Esercizio if</a></li>
+        <li><a href="{% url 'seconda_app:if_else_elif'%}">Esercizio if_else_elif</a></li>
+        <li><a href="{% url 'seconda_app:es_for'%}">Esercizio for</a></li>
+    </ol>
+</body>
+</html>
