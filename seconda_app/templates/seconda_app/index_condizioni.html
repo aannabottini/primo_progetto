@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index condizioni</title>
-</head>
-<body>
+{% extends "base.html"%}
+
+{%block title%} {{block.super}} | Index root {%endblock title%}
+
+{%block content%}
     <ol> 
         <!-- { % url “namespace:url” % }consente di inserire dinamicamente 
         un link senza doverlo scrivere noi. Si usa il namespace (app_name) 
@@ -16,5 +14,4 @@
         <li><a href="{% url 'seconda_app:if_else_elif'%}">Esercizio if_else_elif</a></li>
         <li><a href="{% url 'seconda_app:es_for'%}">Esercizio for</a></li>
     </ol>
-</body>
-</html>
+{%endblock content%}
