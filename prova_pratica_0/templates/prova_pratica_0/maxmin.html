@@ -1,0 +1,24 @@
+{% extends "base.html"%}
+
+{%block title%} {{block.super}} | Max min {%endblock title%}
+
+{%block content%}
+    <b>var1 = {{ var1 }}</b> <br/>
+    <b>var2 = {{ var2 }}</b> <br/>
+    <b>somma = {{ somma }}
+
+    {% if var1 > var2%}
+      <p style="color: green">{{ var1 }}</p>
+      <p style="color: red">{{ var2 }}</p>
+    {% elif var2 > var1 %}
+      <p style="color: green">{{ var2 }}</p>
+      <p style="color: red">{{ var1 }}</p>
+    {% endif %}
+
+    {% if var1 == var2%}
+    <p>I numeri sono uguali</p>
+      <p style="color: black">{{ var1 }}</p>
+      <p style="color: black">{{ var2 }}</p>
+    {% endif %}
+   
+{%endblock content%}

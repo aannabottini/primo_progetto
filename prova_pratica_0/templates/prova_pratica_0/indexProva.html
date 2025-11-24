@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+
+{%block title%} {{block.super}} | Index Prova Pratica {%endblock title%}
+
+{%block content%}
+    <ol> 
+        <!-- { % url “namespace:url” % }consente di inserire dinamicamente 
+        un link senza doverlo scrivere noi. Si usa il namespace (app_name) 
+        definito in primo_progetto/urls.py seguito dai due punti e poi 
+        dal name dell’url definito in prima_app/urls.py-->
+        <li><a href="{% url 'index_root'%}">Torna a index root</a></li> 
+        <li><a href="{% url 'prova_pratica_0:maxmin'%}">Maxmin</a></li>
+        <li><a href="{% url 'prova_pratica_0:media'%}">Media</a></li>
+    </ol>
+{%endblock content%}
