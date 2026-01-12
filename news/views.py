@@ -56,3 +56,23 @@ def articoloDetailView(request, pk):
     articolo = get_object_or_404(Articolo, pk=pk)
     context = {"articolo": articolo}
     return render(request, "news/articolo_detail.html", context)
+
+
+def lista_articoli(request, pk=None):
+    if(pk==None):
+        intestazione="Tutti gli Articoli"
+        articoli = Articolo.objects.all()
+    else:
+        intestazione="Articoli di un Giornalista"
+        articoli = Articolo.objects.filter(giornalista_id=pk)
+    context = {
+        'intestazione': intestazione,
+        'articoli': articoli,
+    }
+    return render(request, "news/lista_articoli.html", context)
+
+'''
+ quando non viene passato il parametro pk (primary key) del giornalista il suo valore sarà None
+e quindi se pk==None utilizzerai  il metodo objects.all() altrimenti  il metodo objects.filter()
+'''
+

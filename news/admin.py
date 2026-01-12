@@ -1,3 +1,5 @@
 from django.contrib import admin
-
-# Register your models here.
+from .models import Articolo, Giornalista
+# registrare le due classi nel pannello di amministrazione:
+admin.site.register(Articolo)
+admin.site.register(Giornalista)
