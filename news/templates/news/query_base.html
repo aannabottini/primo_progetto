@@ -172,7 +172,7 @@
         <p>Nessun Articolo presente</p>
     {% endif %}
 
-    <h4>18. Articoli con or</h4>
+    <h4>19. Articoli con or</h4>
     {%if articoli_con_or%}
         {% for articolo in articoli_con_or %}
             <p><strong>Titolo: </strong>{{ articolo.titolo }}</p>
@@ -183,4 +183,18 @@
     {% else %}
         <p>Nessun Articolo presente</p>
     {% endif %}
+
+    <h4>20. Articoli con not </h4>
+    {%if articoli_con_not%}
+        {% for articolo in articoli_con_not %}
+            <p><strong>Titolo: </strong>{{ articolo.titolo }}</p>
+            <p><strong>Contenuto: </strong>{{ articolo.contenuto }}</p>
+            <p><strong>Autore: </strong>{{ articolo.giornalista }}</p>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>Nessun Articolo presente</p>
+    {% endif %}
+
+
 {% endblock content%}

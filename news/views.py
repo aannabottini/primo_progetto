@@ -129,20 +129,31 @@ def queryBase(request):
     articoli_parola = Articolo.objects.filter(titolo__icontains='importante')
 
     #16. Articoli pubblicati in un certo mese di un anno specifico
-    articoli_mese_anno = Articolo.objects.filter(data__month=1, data__year=2023) #restituisce una lista
+    articoli_mese_anno = Articolo.objects.filter(data_articolo__month=1, data_articolo__year=2023) #restituisce una lista
 
     #17. Giornalisti con almeno un articolo con più di 100 visualizzazioni
     giornalisti_con_articoli_popolari = Giornalista.objects.filter(articoli__visualizzazioni__gte=100).distinct
-    
+
     data = datetime.date(1990,1,1)
     visualizzazioni = 50
-    #18. scrivi quali articoli vengono selezionati
-    articoli_con_and = Articolo.objects.filter(giornalista__anno_di_nascita__gt=data, visualizzazioni__gte=visualizzazioni)
+    #18. Articoli sritti da giornalisti con anno_di_nascita>data e con le visualizzazioni>=50
+    articoli_con_and = Articolo.objects.filter(giornalista__anno_nascita__gt=data, visualizzazioni__gte=visualizzazioni)
 
+ 
     from django.db.models import Q
-    #19. scrivi quali articoli vengono selezionati
-    articoli_con_or = Articolo.objects.filter(giornalista__anno_di_nascita__gt=data) | Q(visualizzazioni__lte=visualizzazioni)
+    #19. articoli scritti da giornalisti con anno di nascita>data oppure visualizzazioni<=50
+    articoli_con_or = Articolo.objects.filter(
+        (Q(giornalista__anno_nascita__gt=data)) | Q(visualizzazioni__lte=visualizzazioni))
     
+    #Per il not utilizzare l'operatore Q
+    #20. articoli con not
+    articoli_con_not = Articolo.objects.filter(~Q(giornalista__anno_nascita__lt=data)) #filtra su l'anno di nascita che deve essere maggiore o uguale a data
+    
+    articoli_con_not = Articolo.objects.exclude(giornalista__anno_nascita__lt=data)
+    #exlude() che esclude gli articoli che soddisfano una determinata condizione.
+    #quindi esclude gli articoli con anno_di_nascita<data
+   
+
     #Dizionazio Contenxt
     context = {
         'articoli_cognome' : articoli_cognome,
@@ -163,6 +174,7 @@ def queryBase(request):
         'articoli_mese_anno' : articoli_mese_anno,
         'giornalisti_con_articoli_popolari' : giornalisti_con_articoli_popolari,
         'articoli_con_and' : articoli_con_and,
-        'articoli_con_or' : articoli_con_or
+        'articoli_con_or' : articoli_con_or,
+        'articoli_con_not' : articoli_con_not
     }
     return render(request, 'news/query_base.html', context)
