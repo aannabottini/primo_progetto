@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-</head>
-<body>
+{% extends "base.html"%}
+
+
+{% block content%}
+
     <ol> 
         <!-- { % url “namespace:url” % }consente di inserire dinamicamente 
         un link senza doverlo scrivere noi. Si usa il namespace (app_name) 
@@ -17,5 +15,6 @@
         <li><a href="{% url 'prima_app:chi_siamo'%}">Chi siamo</a></li>
         <li><a href="{% url 'prima_app:variabili'%}">Variabili</a></li>
     </ol>
-</body>
-</html>
+
+
+{% endblock content%}

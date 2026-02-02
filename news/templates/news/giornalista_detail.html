@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+
+{%block content%}
+    <h1>Dettagli del giornalista: </h1>
+    <h3>{{ giornalista.cognome }} {{ giornalista.nome }}</h1>
+    <h3>nato il {{ giornalista.anno_nascita}}</h5>
+    <h4>Tutti i suoi articoli e visualizzazioni </h4>
+    {% if articoli_giornalista%}
+        {% for articolo in articoli_giornalista%}
+            <p><strong>- Titolo: </strong> <a href={% url 'news:articolo_detail' articolo.id %}>{{ articolo.titolo }}</a> ({{ articolo.visualizzazioni }} visualizzazioni) </p><!--articolo.id è la pk che viene richiesta nell'url 'articoli/<int:pk>'-->
+        {% endfor %}
+    {% else %}
+        <p>Non ci sono elementi per il giornalista {{ giornalista.cognome }} {{ giornalista.nome }}
+    {% endif %}
+   
+
+
+{%endblock content%}

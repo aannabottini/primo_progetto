@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 {% extends "base.html"%}
 
-{%block title%} {{block.super}} | Lista-Articoli {%endblock title%}
+{% block title %} {{ block.super }} | Lista-Articoli {% endblock title %}
 
-{%block content%}
-    <h4>{{intestazione}}</h4>
-        {%for articolo in articoli %}
-
-            <p><strong>Titolo: </strong>{{ articolo.titolo }}</p>
-            <p><strong>Contenuto: </strong>{{ articolo.contenuto }}</p>
-            <p><strong>Autore: </strong>{{ articolo.giornalista }}</p>
+{% block content %}
+    <h4>{{ intestazione }}</h4>
+        {% for articolo in articoli %}
+            <p><strong>Titolo: </strong>
+                <a href={% url 'news:articolo_detail' articolo.id %}>{{ articolo.titolo }}</a> <!--articolo.id è la pk che viene richiesta nell'url 'articoli/<int:pk>'-->
+            </p>
+            <p><strong>Contenuto: </strong>
+                {{ articolo.contenuto }}
+            </p>
+            <p><strong>Autore: </strong>
+                <a href={% url 'news:giornalista_detail' articolo.giornalista.id %}>{{ articolo.giornalista }}</a>
+            </p>
             <hr>
         {% endfor %}
-{%endblock content%}
+{% endblock content %}

@@ -53,6 +53,9 @@ def home(request):
                "giornalisti": giornalisti}
     return render(request, "news/homepage.html", context)
 
+def indexNews(request):
+    return render(request, "news/index_news.html")
+
 def articoloDetailView(request, pk):
     articolo = get_object_or_404(Articolo, pk=pk)
     context = {"articolo": articolo}
@@ -76,6 +79,12 @@ def lista_articoli(request, pk=None):
  quando non viene passato il parametro pk (primary key) del giornalista il suo valore sarà None
 e quindi se pk==None utilizzerai  il metodo objects.all() altrimenti  il metodo objects.filter()
 '''
+def giornalistaDetailView(request, pk):
+    giornalista = get_object_or_404(Giornalista, pk=pk)
+    articoli_giornalista = Articolo.objects.filter(giornalista = giornalista)
+    context = {"giornalista": giornalista,
+               "articoli_giornalista" : articoli_giornalista}
+    return render(request, "news/giornalista_detail.html", context)
 
 def queryBase(request):
     #1. Tutti gli articoli scritti da giornalisti di un certo cognome:

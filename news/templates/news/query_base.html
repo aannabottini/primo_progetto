@@ -11,7 +11,7 @@
     <h4>1. Articoli scritti da giornalisti con un certo cognome</h4>
     {% if articoli_cognome %} <!--Se la lista non è vuota -->
         {% for articolo in articoli_cognome %}
-            <p><strong>Id: </strong><a href="../articolo/{{ articolo.id }}">{{ articolo.id }}</a></p>
+            <p><strong>Id: </strong></p>
             <p><strong>Titolo: </strong>{{ articolo.titolo }}</p>
             <p><strong>Contenuto: </strong>{{ articolo.contenuto }}</p>
             <p><strong>Autore: </strong>{{ articolo.giornalista }}</p>

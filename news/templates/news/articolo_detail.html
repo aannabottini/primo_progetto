@@ -8,5 +8,5 @@
 {%block content%}
    <h1>{{ articolo.titolo }}</h1>
    <h3>{{ articolo.contenuto }}</h3>
-   <h5>Autore: {{ articolo.giornalista}}</h5>
+   <h5>Autore: <a href={% url 'news:giornalista_detail' articolo.giornalista.id %}>{{ articolo.giornalista }}</a></h5>
 {%endblock content%}
