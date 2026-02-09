@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+
+{% block title %} {{ block.super }} | Lista Voti {% endblock title %}
+
+{%block content%}
+    <h4>Lista voti</h4>
+    {% for studente,materie in voti.items%}
+        <h5>{{studente}}</h5>
+        {% for materia,voto,assenze in materie%}
+            <p>{{materia}}, {{voto}}, {{assenze}}</p>
+        {% endfor %}
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+
+{% block title %} {{ block.super }} | Media Voti {% endblock title %}
+
+{%block content%}
+    <h4>Media voti</h4>
+    {% for studente,media in media_voti.items%}
+        <h5>{{studente}}</h5>
+        <p>{{media}}</p>
+        <hr>
+    {% endfor %}
+{% endblock content %}

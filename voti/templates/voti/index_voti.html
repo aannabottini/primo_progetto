@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+
+{% block title %} {{ block.super }} | Index Voti {% endblock title %}
+
+{%block content%}
+    <ol>
+        <li><a href="{% url 'index_root'%}">Torna a index root</a></li> 
+        <li><a href="{% url 'voti:lista_materie'%}">Lista Materie</a></li> 
+    </ol>
+{% endblock content %}

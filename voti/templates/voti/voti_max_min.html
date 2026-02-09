@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+
+{% block title %} {{ block.super }} | Media Voti {% endblock title %}
+
+{%block content%}
+    <h4>Media voti</h4>
+    {%for voto, studenti in materie_max.item%}
+        {%for studente,materia in studenti%}
+            <p>Voto massimo: {{voto}}</p>
+            <p>Materie con voto massimo: {{materia}}</p>
+            <p>Studenti con voto massimo: {{studente}}</p>
+        {% endfor %}
+    {% endfor %}
+{% endblock content %}
