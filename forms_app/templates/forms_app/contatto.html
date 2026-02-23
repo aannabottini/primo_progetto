@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} | Contatti {% endblock head_title %}
+
+{% block content %}
+<div class="container">
+    <h1>Compila il form di contatto, ti risponderemo quanto prima!</h1>
+
+    <form method="post"> <!--I dati verranno inviati al server con metodo post-->
+        {% csrf_token %} <!--serve a proteggere il sito-->
+        <!-- {{form.as_p}} genera i campi del form mettendoli in un paragrafo <p>, potevo anche creare una tabella con as_table o una lista con as_ul-->
+        {{ form|crispy }}
+        <input type="submit" class="btn btn-danger" value="INVIA"> <!--crea il pulsante di invio del form-->
+    </form>
+
+</div>
+{% endblock content %}

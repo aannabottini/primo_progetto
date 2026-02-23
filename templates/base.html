@@ -79,6 +79,28 @@
         </div>
       </li>
 
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Voti
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'voti:index_voti'%}">Homepage</a>
+          <a class="dropdown-item" href="{% url 'voti:lista_materie'%}">Lista Materie</a>
+          <a class="dropdown-item" href="{% url 'voti:lista_voti'%}">Lista Voti</a>
+          <a class="dropdown-item" href="{% url 'voti:media_voti'%}">Media Voti</a>
+          <a class="dropdown-item" href="{% url 'voti:voto_max_min'%}">Max min voti</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Contatti
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'forms_app:contattaci'%}">Contattaci</a>
+        </div>
+      </li>
+
 
     </ul>
   </div>
