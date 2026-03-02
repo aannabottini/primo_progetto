@@ -1,7 +1,11 @@
 from django.shortcuts import render, HttpResponse
 from .forms import FormContatto
+from .models import Contatto
 
 # Create your views here.
+def index_contatti(request):
+    return render(request, 'forms_app/index_contatti.html')
+
 def contatto(request):
     #se la richiesta è di tipo post, quindi il client fa la richiesta inviando dei dati.
     if request.method == "POST":
@@ -29,3 +33,9 @@ def contatto(request):
     }
     return render(request, "forms_app/contatto.html", context)
 
+def lista_contatti(request):
+    contatti = Contatto.objects.all()
+    context = {
+        "contatti" : contatti
+    }
+    return render(request, "forms_app/lista_contatti.html", context)
