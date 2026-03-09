@@ -118,7 +118,7 @@
 
       {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{%url 'login'%}">Registrati</a>
+          <a class="nav-link" href="{%url 'accounts:signup'%}">Registrati</a>
             {{ request.user.username }}
         </li>
 

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Registrazione</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }} <!--mostra tutti i campi del form con ogni campo racchiuso in <p>-->
+        <button type="submit">Registrati</button>
+    </form>
+
+    <p> 
+        Hai già un account?
+        <a href={% url 'login'%}>Login</a>
+    </p>
+{% endblock %}
