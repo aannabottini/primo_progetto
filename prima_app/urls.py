@@ -13,6 +13,7 @@ from prima_app.views import variabili
 #Importiamo la funzione index del file views.py
 from prima_app.views import index
 
+
 app_name = "prima_app"
 #Creiamo un vettore con tutti gli url della nostra applicazione.
 urlpatterns = [

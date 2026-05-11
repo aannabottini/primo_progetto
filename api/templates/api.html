@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+
+{%block title%} {{block.super}} | API {%endblock title%}
+
+{%block content%}
+    <ol>
+        <li><a href="{% url 'api:todos'%}">Todos</a></li> 
+        <li><a href="{% url 'api:spotify'%}">Spotify</a></li>
+    </ol>
+{%endblock content%}
